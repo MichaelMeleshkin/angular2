@@ -1,0 +1,3 @@
+<div *ngIf=todos.length>
+    <todo-item *ngFor="let todo of todos" [todo]=todo [class.done]="todo.completed"></todo-item>
+</div>
