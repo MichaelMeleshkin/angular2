@@ -5,10 +5,7 @@ import { ITodo } from '../models/todo';
 
 @Injectable()
 export class TodoService {
-    todos: ITodo[];
-
     getTodos(): ITodo[] {
-
         return todos;
     }
 
@@ -16,7 +13,10 @@ export class TodoService {
         todos.push(todo);
     }
 
-    deleteTodo(id: string) {
-
+    deleteTodo(todo: ITodo) {
+        let index = todos.indexOf(todo);
+        if ( ~index ) {
+            todos.splice(index, 1);         
+        }
     }
 }

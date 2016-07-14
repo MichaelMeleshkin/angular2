@@ -12,8 +12,17 @@ import { ITodo, Todo } from '../todo';
 
 export class List {
     todos: ITodo[];
+    todoServise: TodoService;
 
     constructor(todoServise: TodoService) {
-        this.todos = todoServise.getTodos();
+        this.todoServise = todoServise;
+    }
+
+    ngOnInit() {
+        this.todos = this.todoServise.getTodos();
+    }
+
+    todoDelete(todo) {
+        this.todoServise.deleteTodo(todo);
     }
 }
