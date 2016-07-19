@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { TodoService } from '../../services/todo-service';
 import { Item } from '../list/item.component';
-import { ITodo, Todo } from '../todo';
+import { ITodo } from '../todo';
 
 @Component ({
     selector: 'todo-list',
