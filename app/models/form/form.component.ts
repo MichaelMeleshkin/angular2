@@ -10,14 +10,28 @@ import { ITodo, Todo } from '../todo';
 
 export class Form {
     todoServise: TodoService;
+    id: string;
+    todo: ITodo;
 
     constructor(todoServise: TodoService) {
         this.todoServise = todoServise;
+        this._initModel();
     }
 
-    addTask(title: string, date: string, description: string) {
-        let id: string = this.todoServise.getTodos().length.toString();
-        let todo: ITodo = new Todo(id, title, date, description);
-        this.todoServise.addTodo(todo);
+    addTask(): void {
+        console.log(this.todo.id);
+        if (this.todo.title) {
+            this.todoServise.addTodo(this.todo);
+
+            this._initModel();
+        }
+    }
+
+    _initModel() {
+        this.todo = new Todo(this._getNewId(), 'New Task', '', '');
+    }
+
+    _getNewId(): string {
+        return this.todoServise.getTodos().length.toString();
     }
 }

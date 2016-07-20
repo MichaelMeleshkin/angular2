@@ -6,6 +6,7 @@ import { ITodo } from '../todo';
 
 @Component ({
     selector: 'todo-list',
+    styleUrls: ['./src/css/todo/list.css'],
     templateUrl: './app/views/todo-list.html',
     directives: [Item]
 })

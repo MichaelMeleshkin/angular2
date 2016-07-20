@@ -16,7 +16,11 @@ export class Item {
         this.todoItemDelete = new EventEmitter<ITodo>()
     }
 
+    complete() {
+        this.todo.completed = true;
+    }
+
     delete() {
         this.todoItemDelete.emit(this.todo);
-    };
+    }
 }

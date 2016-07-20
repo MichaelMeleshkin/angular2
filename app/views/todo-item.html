@@ -2,3 +2,4 @@
 <p>{{ todo.date }}</p>
 <p>{{ todo.description }}</p>
 <button (click)="delete()">Delete</button>
+<button (click)="complete()" *ngIf="!todo.completed">Complete</button>

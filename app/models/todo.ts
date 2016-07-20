@@ -20,4 +20,24 @@ export class Todo implements ITodo {
         this.description = description;
         this.completed = false;
     }
+
+    setId(id: string) {
+        this.id = id;
+    }
+
+    setTitile(title: string) {
+        this.title = title;
+    }
+
+    setDate(date: string) {
+        this.date = date;
+    }
+
+    setDescription(description: string) {
+        this.description = description;
+    }
+
+    setStatus(completed: boolean) {
+        this.completed = completed;
+    }
 }
