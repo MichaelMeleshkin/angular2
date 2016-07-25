@@ -4,3 +4,4 @@
 /app/**/*.js
 /app/**/*.map
 /typings/
+/.vscode/

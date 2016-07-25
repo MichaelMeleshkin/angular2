@@ -1,0 +1,10 @@
+<div><a href="/show">Back</a></div>
+<p>{{ todo.title }}</p>
+<label>Name: <input type="text" #name></label>
+<button (click)="share(name.value)">Share</button>
+<ul *ngIf="todo.share">
+    <li *ngFor="let share of todo.share">
+        {{share.name}}
+        <button (click)="unshare(share.name)">Remove</button>
+    </li>
+</ul>

@@ -1,0 +1,8 @@
+<div><a href="/show">Back</a></div>
+<div *ngIf="todo">
+    <p>{{ todo.title }}</p>
+    <p>{{ todo.date }}</p>
+    <p>{{ todo.description }}</p>
+    <button (click)="delete()">Delete</button>
+    <button (click)="complete()" *ngIf="!todo.completed">Complete</button>
+</div>

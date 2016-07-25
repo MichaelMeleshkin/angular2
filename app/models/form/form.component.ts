@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { TodoService } from '../../services/todo-service';
 import { ITodo, Todo } from '../todo';
@@ -9,29 +10,50 @@ import { ITodo, Todo } from '../todo';
 })
 
 export class Form {
-    todoServise: TodoService;
     id: string;
+    actionName: string;
     todo: ITodo;
+    sub: any;
 
-    constructor(todoServise: TodoService) {
-        this.todoServise = todoServise;
-        this._initModel();
+    constructor(private route: ActivatedRoute, private router: Router,
+        private todoService: TodoService) {}
+
+    ngOnInit() {
+        this.sub = this.route.params.subscribe(params => {
+            this.id = params['id'];
+            if (this.id) {
+                this.actionName = 'Edit';
+                this.todo = this.todoService.getTodo(this.id);
+            } else {
+                this.actionName = 'Create';
+                this.initModel();
+            }
+        });
     }
 
     addTask(): void {
-        console.log(this.todo.id);
         if (this.todo.title) {
-            this.todoServise.addTodo(this.todo);
+            if (this.id) {
+                //edit task
+                this.todoService.editTodo(this.todo);
+            } else {
+                //create task
+                this.todoService.addTodo(this.todo);
+            }
 
-            this._initModel();
+            this.initModel();
         }
     }
 
-    _initModel() {
-        this.todo = new Todo(this._getNewId(), 'New Task', '', '');
+    private initModel() {
+        this.todo = new Todo(this.getNewId(), 'New Task', '', '');
     }
 
-    _getNewId(): string {
-        return this.todoServise.getTodos().length.toString();
+    private getNewId(): string {
+        let newId: number = 0;
+        if (this.todoService.getTodos()) {
+            newId = this.todoService.getTodos().length;
+        }
+        return newId.toString();
     }
 }

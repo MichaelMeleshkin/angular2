@@ -1,11 +1,11 @@
-
+<div><a href="/show">Back</a></div>
 <label [class.error]="!todo.title">Title: 
     <input type="text" required [(ngModel)]="todo.title" #title (keyup.enter)="addTask()">
 </label><br>
-<label>Date (format - "dd/mm/yyyy"):
-    <input type="text"  [(ngModel)]="todo.date" (keyup.enter)="addTask()">
+<label>Date:
+    <input type="date"  [(ngModel)]="todo.date" (keyup.enter)="addTask()">
 </label><br>
 <label>Description: 
     <input type="text"  [(ngModel)]="todo.description" (keyup.enter)="addTask()">
 </label><br>
-<button (click)="addTask()">Create task</button><br>
+<button (click)="addTask()">{{ actionName }} task</button><br>

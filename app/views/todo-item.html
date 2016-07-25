@@ -1,5 +1,7 @@
-<p>{{ todo.title }}</p>
-<p>{{ todo.date }}</p>
+<p><a href="/show/{{todo.id}}">{{ todo.title }}</a></p>
+<a href="/edit/{{todo.id}}">Edit</a>
+<a href="/share/{{todo.id}}">Share</a>
+<!--<p>{{ todo.date }}</p>
 <p>{{ todo.description }}</p>
 <button (click)="delete()">Delete</button>
-<button (click)="complete()" *ngIf="!todo.completed">Complete</button>
+<button (click)="complete()" *ngIf="!todo.completed">Complete</button>-->

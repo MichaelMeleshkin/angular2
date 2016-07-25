@@ -1,8 +1,8 @@
-<div *ngIf=todos.length>
+<div><a href="/create">New</a></div>
+<div *ngIf=todos>
     <todo-item 
         *ngFor="let todo of todos" 
         [todo]=todo 
         [class.done]="todo.completed" 
-        (todoItemDelete)="todoDelete(todo)"
     ></todo-item>
 </div>
