@@ -17,8 +17,6 @@ export class TodoService {
     }
 
     addTodo(todo: ITodo): void {
-        console.log('test');
-        console.log(this.todos);
         this.todos.push(todo);
         this.writeLocalStorage();
     }
@@ -26,9 +24,6 @@ export class TodoService {
     editTodo(todo: ITodo): void {
         this.readLocalStorage();
         let index = this.todos.indexOf(this.todos.filter((obj: ITodo) => obj.id === todo.id)[0]);
-        console.log(todo.id);
-        console.log(this.getTodo(todo.id));
-        console.log(index);
         if (~index) {
             this.todos[index] = todo;
             this.writeLocalStorage();

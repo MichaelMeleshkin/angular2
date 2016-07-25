@@ -22,8 +22,6 @@ export class ShareList  {
             let id = params['id'];
             this.todo = this.todoService.getTodo(id);
         });
-
-        console.log(this.todo);
     }
     ngOnDestroy() {
         this.sub.unsubscribe();
